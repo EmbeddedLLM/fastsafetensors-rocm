@@ -20,6 +20,7 @@ This index includes:
 ### Package Inventory
 
 - click: 2 wheels
+- fastsafetensors: 5 wheels
 - markdown_it_py: 2 wheels
 - mdurl: 1 wheels
 - pygments: 1 wheels
