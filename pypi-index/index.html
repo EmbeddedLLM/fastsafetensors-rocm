@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>fastsafetensors-rocm - PyPI Index</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        h1 { color: #2c3e50; }
+        .backend { margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 8px; }
+        code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>fastsafetensors-rocm - PyPI Index</h1>
+    <p>Choose the appropriate index URL based on your GPU backend:</p>
+
+    <div class="backend">
+        <h2>🔥 ROCm (AMD GPUs)</h2>
+        <p>For AMD GPUs using ROCm:</p>
+        <pre>pip install fastsafetensors --index-url https://embeddedllm.github.io/fastsafetensors-rocm/rocm/simple/</pre>
+    </div>
+
+    <div class="backend">
+        <h2>💚 CUDA (NVIDIA GPUs)</h2>
+        <p>For NVIDIA GPUs using CUDA:</p>
+        <pre>pip install fastsafetensors --index-url https://embeddedllm.github.io/fastsafetensors-rocm/cuda/simple/</pre>
+    </div>
+
+    <h3>Version Specific Installation</h3>
+    <pre>pip install fastsafetensors==0.1.15 --index-url https://embeddedllm.github.io/fastsafetensors-rocm/rocm/simple/</pre>
+
+    <h3>In requirements.txt</h3>
+    <pre>--index-url https://embeddedllm.github.io/fastsafetensors-rocm/rocm/simple/
+fastsafetensors>=0.1.15</pre>
+
+    <hr>
+    <p><small>Direct access: <a href="rocm/simple/">ROCm Index</a> | <a href="cuda/simple/">CUDA Index</a></small></p>
+</body>
+</html>

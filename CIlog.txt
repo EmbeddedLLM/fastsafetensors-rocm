@@ -1,0 +1,201 @@
+The following are the CI error log. Only python 3.12 succeeded.
+
+For python 3.9, 3.11, 3.13, maybe we should set the alias to python ?
+
+For python 3.10, how should we solve it?
+
+
+
+-------------- python 3.9
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv virtualenv-init -)"
+
+Downloading Python-3.9.25.tar.xz...
+-> https://www.python.org/ftp/python/3.9.25/Python-3.9.25.tar.xz
+Installing Python-3.9.25...
+Installed Python-3.9.25 to /root/.pyenv/versions/3.9.25
+Python 3.9.25
+
+Run PY_VER="3.9"
+  PY_VER="3.9"
+  
+  # Create virtual environment
+  python${PY_VER} -m venv /opt/venv
+  
+  # Activate venv and install dependencies
+  . /opt/venv/bin/activate
+  
+  # Upgrade pip and install build tools
+  python -m pip install --upgrade pip setuptools wheel
+  python -m pip install build setuptools_scm pybind11 numpy
+  
+  # Verify
+  python --version
+  pip --version
+  shell: sh -e {0}
+/__w/_temp/28380a44-814e-403a-81e4-491e28448792.sh: 4: python3.9: not found
+Error: Process completed with exit code 127.
+
+--------------- python 3.10
+
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [888 B]
+Get:20 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7889 B]
+Get:21 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.9 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [160 B]
+Get:23 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [162 B]
+Fetched 12.5 MB in 1s (15.1 MB/s)
+Reading package lists...
+W: https://repo.radeon.com/amdgpu/7.0/ubuntu/dists/noble/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: https://repo.radeon.com/rocm/apt/7.0/dists/noble/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Installing Python 3.10 from Ubuntu repositories
+Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Unable to locate package python3.10-dev
+E: Couldn't find any package by glob 'python3.10-dev'
+E: Couldn't find any package by regex 'python3.10-dev'
+E: Unable to locate package python3.10-venv
+E: Couldn't find any package by glob 'python3.10-venv'
+E: Couldn't find any package by regex 'python3.10-venv'
+Error: Process completed with exit code 100.
+
+
+
+
+------------------ python 3.11
+
+1m 56s
+Setting up libxslt1-dev:amd64 (1.1.39-0exp1ubuntu0.24.04.2) ...
+Setting up libxmlsec1t64:amd64 (1.2.39-5build2) ...
+Setting up libfreetype-dev:amd64 (2.13.2+dfsg-1build3) ...
+Setting up libxmlsec1t64-nss:amd64 (1.2.39-5build2) ...
+Setting up libxmlsec1t64-openssl:amd64 (1.2.39-5build2) ...
+Setting up tcl-dev:amd64 (8.6.14build1) ...
+Setting up libxmlsec1t64-gcrypt:amd64 (1.2.39-5build2) ...
+Setting up libxmlsec1t64-gnutls:amd64 (1.2.39-5build2) ...
+Setting up libxmlsec1-dev (1.2.39-5build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.5) ...
+Processing triggers for sgml-base (1.31) ...
+Setting up libfontconfig1:amd64 (2.15.0-1.1ubuntu2) ...
+Setting up libxft2:amd64 (2.3.6-1build1) ...
+Setting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...
+Setting up libtk8.6:amd64 (8.6.14-1build1) ...
+Setting up libxft-dev:amd64 (2.3.6-1build1) ...
+Setting up tk8.6 (8.6.14-1build1) ...
+Setting up libfontconfig1-dev:amd64 (2.15.0-1.1ubuntu2) ...
+Setting up tk8.6-dev:amd64 (8.6.14-1build1) ...
+Setting up tk (8.6.14build1) ...
+Setting up tk-dev:amd64 (8.6.14build1) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.5) ...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   270  100   270    0     0   1331      0 --:--:-- --:--:-- --:--:--  1336
+Cloning into '/root/.pyenv'...
+Cloning into '/root/.pyenv/plugins/pyenv-doctor'...
+Cloning into '/root/.pyenv/plugins/pyenv-update'...
+Cloning into '/root/.pyenv/plugins/pyenv-virtualenv'...
+
+WARNING: seems you still have not added 'pyenv' to the load path.
+
+# Load pyenv automatically by appending
+# the following to 
+# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+# and ~/.bashrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# Restart your shell for the changes to take effect.
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv virtualenv-init -)"
+
+Downloading Python-3.11.14.tar.xz...
+-> https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tar.xz
+Installing Python-3.11.14...
+Installed Python-3.11.14 to /root/.pyenv/versions/3.11.14
+Python 3.11.14
+
+
+
+  PY_VER="3.11"
+  
+  # Create virtual environment
+  python${PY_VER} -m venv /opt/venv
+  
+  # Activate venv and install dependencies
+  . /opt/venv/bin/activate
+  
+  # Upgrade pip and install build tools
+  python -m pip install --upgrade pip setuptools wheel
+  python -m pip install build setuptools_scm pybind11 numpy
+  
+  # Verify
+  python --version
+  pip --version
+  shell: sh -e {0}
+/__w/_temp/9344b5e2-c3b5-4441-b5dc-7bd36b92c941.sh: 4: python3.11: not found
+Error: Process completed with exit code 127.
+
+
+
+
+
+------------- python 3.13
+
+
+
+# and ~/.bashrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# Restart your shell for the changes to take effect.
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv virtualenv-init -)"
+
+Downloading Python-3.13.9.tar.xz...
+-> https://www.python.org/ftp/python/3.13.9/Python-3.13.9.tar.xz
+Installing Python-3.13.9...
+Installed Python-3.13.9 to /root/.pyenv/versions/3.13.9
+Python 3.13.9
+
+
+Run PY_VER="3.13"
+  PY_VER="3.13"
+  
+  # Create virtual environment
+  python${PY_VER} -m venv /opt/venv
+  
+  # Activate venv and install dependencies
+  . /opt/venv/bin/activate
+  
+  # Upgrade pip and install build tools
+  python -m pip install --upgrade pip setuptools wheel
+  python -m pip install build setuptools_scm pybind11 numpy
+  
+  # Verify
+  python --version
+  pip --version
+  shell: sh -e {0}
+/__w/_temp/08844cb1-926c-4cae-ac1d-d29c5775aa6a.sh: 4: python3.13: not found
+
+
+
+
+
+
+
+
