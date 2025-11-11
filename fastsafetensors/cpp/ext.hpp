@@ -15,6 +15,8 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include "cuda_compat.h"
+
 #define ENV_ENABLE_INIT_LOG "FASTSAFETENSORS_ENABLE_INIT_LOG"
 
 #ifndef __MOD_NAME__
@@ -33,8 +35,16 @@ typedef struct CUfileDescr_t {
     const void *fs_ops; /* CUfileFSOps_t */
 } CUfileDescr_t;
 typedef struct CUfileError { CUfileOpError err; } CUfileError_t;
+
+// Define minimal CUDA/HIP types for both platforms to avoid compile-time dependencies
+// We load all GPU functions dynamically at runtime via dlopen()
 typedef enum cudaError { cudaSuccess = 0, cudaErrorMemoryAllocation = 2 } cudaError_t;
+// Platform-specific enum values - CUDA and HIP have different values for HostToDevice
+#ifdef USE_ROCM
+enum cudaMemcpyKind { cudaMemcpyHostToDevice=1, cudaMemcpyDefault = 4 };
+#else
 enum cudaMemcpyKind { cudaMemcpyHostToDevice=2, cudaMemcpyDefault = 4 };
+#endif
 
 
 typedef enum CUfileFeatureFlags {
