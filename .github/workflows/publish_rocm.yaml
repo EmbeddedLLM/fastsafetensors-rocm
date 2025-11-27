@@ -6,7 +6,7 @@ on:
 jobs:
   build-rocm-wheels:
     name: Build ROCm wheel - Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-l
     container:
       image: rocm/dev-ubuntu-22.04:7.1-complete
       options: --user root
@@ -175,7 +175,7 @@ jobs:
 
   build-sdist:
     name: Build ROCm source distribution
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-l
     container:
       image: rocm/dev-ubuntu-22.04:7.1-complete
       options: --user root
@@ -243,7 +243,7 @@ jobs:
   upload:
     name: Upload ROCm wheels and sdist
     needs: [build-rocm-wheels, build-sdist]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-l
 
     steps:
       - name: Download all wheel artifacts
